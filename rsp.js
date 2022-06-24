@@ -4,13 +4,15 @@ function computerPlay(choice){
     return computerChoice;
 }
 
-function roundOne(playerSelection, computerSelection){
-    if (playerSelection === 'ROCK' && computerSelection === 'SISSORS') || (playerSelection === 'SISSORS' && computerSelection === 'PAPER') || (playerSelection === 'PAPER' && computerSelection === 'ROCK') {
-        return 'You won! ${playerSelection} beats ${computerSelection}!';
-    } else if (playerSelection === computerSelection) {
+const playerSelection = 'paper'.toUpperCase();
+const computerSelection = computerPlay(choice);
+
+function playRound(playerSelection, computerSelection){
+    if ((playerSelection == 'ROCK' && computerSelection == 'SISSORS') || (playerSelection == 'SISSORS' && computerSelection == 'PAPER') || (playerSelection == 'PAPER' && computerSelection == 'ROCK')) {
+        return `'You won! ${playerSelection} beats ${computerSelection}!'`;
+    } else if ((computerSelection == 'ROCK' && playerSelection == 'SISSORS') || (computerSelection == 'SISSORS' && playerSelection == 'PAPER') || (computerSelection == 'PAPER' && playerSelection == 'ROCK')) {
+        return `'You lost! ${computerSelection} beats ${playerSelection}!'`;
+    } else {
         return 'Tie! Try again!';
     }
 }
-const playerSelection = prompt('What is your hand?');
-return playerSelection.toUpperCase();
-const computerSelection = computerPlay(choice);
