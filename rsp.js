@@ -22,20 +22,20 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
-    for (let i = 0; i < 5; i++){
-        if (i < 5){
-          const playerSelection = prompt('What is your hand?').toUpperCase();
-          const computerSelection = computerPlay(choice);
-          playRound(playerSelection, computerSelection);
-          console.log(win, ':', loss);
-        } else {
+    for (let i = 0; i < 6; i++){
+        if (i == 5) {
             if (win > loss){
                 console.log('Congratulations! You won the game!');
             } else if (win < loss){
                 console.log('Awww. You lost the game! Wanna play again?');
             } else {
                 console.log('Draw!');
-            }
-        }
+            } 
+        } else {
+          const playerSelection = prompt('What is your hand?').toUpperCase();
+          const computerSelection = computerPlay(choice);
+          playRound(playerSelection, computerSelection);
+          console.log(win, ':', loss);
+        } 
     }
 }
